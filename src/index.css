@@ -73,7 +73,7 @@
 	border-radius: 9999px;
 	background: rgba(255, 255, 255, 0.8);
 	box-shadow: 0 0 14px rgba(16, 185, 129, 0.58);
-	animation: fireworks-core 1350ms cubic-bezier(0.2, 0.78, 0.16, 1) infinite;
+	animation: fireworks-core 1350ms cubic-bezier(0.2, 0.78, 0.16, 1) 1;
 	will-change: transform, opacity;
 	backface-visibility: hidden;
 }
@@ -89,7 +89,7 @@
 	border-radius: 9999px;
 	background: var(--fw-c);
 	filter: drop-shadow(0 0 4px var(--fw-c));
-	animation: fireworks-burst 1220ms cubic-bezier(0.15, 0.72, 0.2, 1) infinite;
+	animation: fireworks-burst 1220ms cubic-bezier(0.15, 0.72, 0.2, 1) 1;
 	animation-delay: var(--fw-d);
 	will-change: transform, opacity;
 	backface-visibility: hidden;

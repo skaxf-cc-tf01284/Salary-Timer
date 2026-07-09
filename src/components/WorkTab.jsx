@@ -22,8 +22,8 @@ export function WorkTab({
   const classes = getThemeClasses(theme === 'light')
   const [workEndText, setWorkEndText] = useState(workEndParts.text)
   const [hitFx, setHitFx] = useState(false)
-  const prevReachedRef = useRef(false)
   const isReached = Boolean(workData.isReached)
+  const prevReachedRef = useRef(isReached)
 
   useLayoutEffect(() => {
     queueMicrotask(() => {
@@ -39,7 +39,7 @@ export function WorkTab({
   useEffect(() => {
     if (!prevReachedRef.current && isReached) {
       setHitFx(true)
-      const timer = setTimeout(() => setHitFx(false), 8000)
+      const timer = setTimeout(() => setHitFx(false), 2200)
       prevReachedRef.current = true
       return () => clearTimeout(timer)
     }

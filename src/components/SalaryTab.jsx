@@ -5,13 +5,13 @@ import { getThemeClasses } from '../styles'
 export function SalaryTab({ activeTab, tr, theme, salaryData }) {
   const classes = getThemeClasses(theme === 'light')
   const [hitFx, setHitFx] = useState(false)
-  const prevReachedRef = useRef(false)
   const isReached = Boolean(salaryData.isReached)
+  const prevReachedRef = useRef(isReached)
 
   useEffect(() => {
     if (!prevReachedRef.current && isReached) {
       setHitFx(true)
-      const timer = setTimeout(() => setHitFx(false), 8000)
+      const timer = setTimeout(() => setHitFx(false), 2200)
       prevReachedRef.current = true
       return () => clearTimeout(timer)
     }
