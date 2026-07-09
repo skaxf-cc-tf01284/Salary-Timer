@@ -123,14 +123,6 @@ export function WorkTab({
         </div>
       </div>
 
-      {hitFx && (
-        <div
-          className={`countdown-hit-tag mt-2 inline-flex rounded-md border px-2 py-1 text-xs font-bold tracking-[0.08em] ${theme === 'light' ? 'border-emerald-400 bg-emerald-50 text-emerald-700' : 'border-emerald-500/60 bg-emerald-500/10 text-emerald-200'}`}
-        >
-          {'>> TARGET REACHED <<'}
-        </div>
-      )}
-
       <div className={`mt-3 ${classes.panelBox}`} dangerouslySetInnerHTML={{ __html: workData.infoHtml }} />
 
       <SegmentVisualization
