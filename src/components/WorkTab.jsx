@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Fireworks } from './Fireworks'
 import { getThemeClasses } from '../styles'
 import { trTpl as trTplUtil } from '../utils'
@@ -23,23 +23,37 @@ export function WorkTab({
   const [workEndText, setWorkEndText] = useState(workEndParts.text)
   const [hitFx, setHitFx] = useState(false)
   const prevReachedRef = useRef(false)
-  const isReached = workData.wh === '00' && workData.wm === '00' && workData.ws === '00'
+  const isReached = Boolean(workData.isReached)
 
-  useEffect(() => {
-    setWorkEndText(workEndParts.text)
+  useLayoutEffect(() => {
+    queueMicrotask(() => {
+      setWorkEndText(prev => {
+        if (prev !== workEndParts.text) {
+          return workEndParts.text
+        }
+        return prev
+      })
+    })
   }, [workEndParts.text])
 
   useEffect(() => {
     if (!prevReachedRef.current && isReached) {
       setHitFx(true)
-      const timer = setTimeout(() => setHitFx(false), 1300)
+      const timer = setTimeout(() => setHitFx(false), 8000)
       prevReachedRef.current = true
       return () => clearTimeout(timer)
     }
 
     if (!isReached) {
       prevReachedRef.current = false
-      setHitFx(false)
+      queueMicrotask(() => {
+        setHitFx(prev => {
+          if (prev !== false) {
+            return false
+          }
+          return prev
+        })
+      })
     }
   }, [isReached])
 

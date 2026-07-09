@@ -6,19 +6,21 @@ export function SalaryTab({ activeTab, tr, theme, salaryData }) {
   const classes = getThemeClasses(theme === 'light')
   const [hitFx, setHitFx] = useState(false)
   const prevReachedRef = useRef(false)
-  const isReached = salaryData.d === 0 && salaryData.h === '00' && salaryData.m === '00' && salaryData.s === '00'
+  const isReached = Boolean(salaryData.isReached)
 
   useEffect(() => {
     if (!prevReachedRef.current && isReached) {
       setHitFx(true)
-      const timer = setTimeout(() => setHitFx(false), 1300)
+      const timer = setTimeout(() => setHitFx(false), 8000)
       prevReachedRef.current = true
       return () => clearTimeout(timer)
     }
 
     if (!isReached) {
       prevReachedRef.current = false
-      setHitFx(false)
+      queueMicrotask(() => {
+        setHitFx(false)
+      })
     }
   }, [isReached])
 
