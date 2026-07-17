@@ -9,8 +9,8 @@ export function getThemeClasses(isLight) {
       : 'rounded-xl border border-emerald-700/60 bg-[#0b1b15] px-3 py-4 text-center shadow-[0_8px_20px_rgba(5,46,22,0.5)]',
 
     tabBase: isLight
-      ? 'grid w-full min-h-[42px] grid-cols-[1.5em_minmax(0,1fr)_1.5em] items-center gap-1 rounded-lg border px-4 py-2 text-sm font-bold transition border-slate-300 bg-white text-slate-700 hover:border-emerald-600 hover:-translate-y-0.5'
-      : 'grid w-full min-h-[42px] grid-cols-[1.5em_minmax(0,1fr)_1.5em] items-center gap-1 rounded-lg border px-4 py-2 text-sm font-bold transition border-emerald-700 bg-[#0c1913] text-emerald-100 hover:border-emerald-400 hover:-translate-y-0.5',
+      ? 'grid w-full min-h-[44px] sm:min-h-[42px] grid-cols-[1.5em_minmax(0,1fr)_1.5em] items-center gap-1 rounded-lg border px-3 sm:px-4 py-2.5 sm:py-2 text-xs sm:text-sm font-bold transition border-slate-300 bg-white text-slate-700 hover:border-emerald-600 hover:-translate-y-0.5'
+      : 'grid w-full min-h-[44px] sm:min-h-[42px] grid-cols-[1.5em_minmax(0,1fr)_1.5em] items-center gap-1 rounded-lg border px-3 sm:px-4 py-2.5 sm:py-2 text-xs sm:text-sm font-bold transition border-emerald-700 bg-[#0c1913] text-emerald-100 hover:border-emerald-400 hover:-translate-y-0.5',
 
     tabActive: isLight
       ? 'border-emerald-700 bg-emerald-50 text-slate-900 shadow-[0_8px_20px_rgba(5,150,105,0.22)]'
@@ -21,8 +21,8 @@ export function getThemeClasses(isLight) {
       : 'appearance-none bg-transparent py-1 pl-1 pr-5 text-sm font-semibold text-emerald-50 outline-none',
 
     control: isLight
-      ? 'rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-700 outline-none transition focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/25'
-      : 'rounded-lg border border-emerald-700 bg-[#0b1a14] px-3 py-2 text-sm text-emerald-50 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/25',
+      ? 'rounded-lg border border-slate-300 bg-white px-2 sm:px-3 py-2 sm:py-2 text-xs sm:text-sm text-slate-700 outline-none transition focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/25 min-h-[44px] sm:min-h-auto'
+      : 'rounded-lg border border-emerald-700 bg-[#0b1a14] px-2 sm:px-3 py-2 sm:py-2 text-xs sm:text-sm text-emerald-50 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/25 min-h-[44px] sm:min-h-auto',
 
     backgroundGradient: isLight
       ? 'bg-[linear-gradient(145deg,#f2f4f8_0%,#e2e8f0_55%,#cbd5e1_100%)] text-slate-800'

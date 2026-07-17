@@ -61,12 +61,12 @@ export function WorkTab({
   return (
     <section className={activeTab === 'workTab' ? 'relative mt-4 block' : 'hidden'} role="tabpanel">
       <Fireworks active={hitFx} theme={theme} />
-      <h2 className={`flex items-center gap-2 text-xl font-bold ${theme === 'light' ? 'text-slate-900' : 'text-emerald-300'}`}>
+      <h2 className={`flex items-center gap-2 text-lg sm:text-xl font-bold ${theme === 'light' ? 'text-slate-900' : 'text-emerald-300'}`}>
         <Clock size={18} aria-hidden="true" />
         {pageWorkHeading}
       </h2>
       <div
-        className={`mt-2 text-sm ${classes.textLight} flex items-center gap-1.5`}
+        className={`mt-2 text-xs sm:text-sm ${classes.textLight} flex items-center gap-1.5`}
       >
         {workData.milestoneIcon && (() => {
           const icons = { Rocket, AlarmClock, Utensils, Dumbbell, Target, Sunrise }
@@ -76,8 +76,8 @@ export function WorkTab({
         <span dangerouslySetInnerHTML={{ __html: workData.milestoneHtml || tr.workMilestonePlaceholder }} />
       </div>
 
-      <div className="mt-3 flex flex-wrap items-center gap-2">
-        <label htmlFor="workEndInput" className="text-sm font-bold">
+      <div className="mt-3 flex flex-wrap items-center gap-2 sm:gap-3">
+        <label htmlFor="workEndInput" className="text-xs sm:text-sm font-bold w-full sm:w-auto">
           {tr.workEndLabel}
         </label>
         <input
@@ -86,7 +86,7 @@ export function WorkTab({
           inputMode="numeric"
           autoComplete="off"
           placeholder="HH:MM"
-          className={`${classes.control} w-[7.2rem] tracking-[0.08em]`}
+          className={`${classes.control} w-[7.2rem] tracking-[0.08em] text-sm sm:text-base py-2 sm:py-2 px-2 sm:px-3 min-h-[44px]`}
           value={workEndText}
           onChange={(event) => {
             const normalized = event.target.value.replace(/[^0-9:]/g, '').slice(0, 5)
@@ -109,7 +109,7 @@ export function WorkTab({
         />
         <button
           type="button"
-          className={classes.control}
+          className={`${classes.control} text-xs sm:text-sm min-h-[44px]`}
           onClick={() => setWorkEndMinutes(DEFAULT_WORK_END_HOUR * 60 + DEFAULT_WORK_END_MIN)}
         >
           {tr.workEndReset}
@@ -118,18 +118,18 @@ export function WorkTab({
 
       <div className={`mt-2 text-sm ${classes.textLight}`} dangerouslySetInnerHTML={{ __html: endHint }} />
 
-      <div className={`mt-3 grid grid-cols-3 gap-3 ${hitFx ? 'countdown-hit' : ''}`}>
+      <div className={`mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 ${hitFx ? 'countdown-hit' : ''}`}>
         <div className={classes.statBox}>
-          <div className={`text-4xl font-extrabold ${theme === 'light' ? 'text-emerald-700' : 'text-emerald-300'}`}>{workData.wh}</div>
-          <div className="text-sm opacity-80">{tr.hourLabel}</div>
+          <div className={`text-3xl sm:text-4xl font-extrabold ${theme === 'light' ? 'text-emerald-700' : 'text-emerald-300'}`}>{workData.wh}</div>
+          <div className="text-xs sm:text-sm opacity-80">{tr.hourLabel}</div>
         </div>
         <div className={classes.statBox}>
-          <div className={`text-4xl font-extrabold ${theme === 'light' ? 'text-emerald-700' : 'text-emerald-300'}`}>{workData.wm}</div>
-          <div className="text-sm opacity-80">{tr.minuteLabel}</div>
+          <div className={`text-3xl sm:text-4xl font-extrabold ${theme === 'light' ? 'text-emerald-700' : 'text-emerald-300'}`}>{workData.wm}</div>
+          <div className="text-xs sm:text-sm opacity-80">{tr.minuteLabel}</div>
         </div>
-        <div className={classes.statBox}>
-          <div className={`text-4xl font-extrabold ${theme === 'light' ? 'text-emerald-700' : 'text-emerald-300'}`}>{workData.ws}</div>
-          <div className="text-sm opacity-80">{tr.secondLabel}</div>
+        <div className={`hidden sm:block ${classes.statBox}`}>
+          <div className={`text-3xl sm:text-4xl font-extrabold ${theme === 'light' ? 'text-emerald-700' : 'text-emerald-300'}`}>{workData.ws}</div>
+          <div className="text-xs sm:text-sm opacity-80">{tr.secondLabel}</div>
         </div>
       </div>
 
@@ -160,8 +160,8 @@ function SegmentVisualization({
   const classes = getThemeClasses(theme === 'light')
 
   return (
-    <div className={`mt-3 rounded-xl border p-3 ${theme === 'light' ? 'border-slate-300 bg-slate-50' : 'border-emerald-700/60 bg-[#08140f]'}`}>
-      <div className={`mb-2 text-sm ${classes.textLight}`}>{tr.segmentTitle}</div>
+    <div className={`mt-3 rounded-xl border p-2 sm:p-3 ${theme === 'light' ? 'border-slate-300 bg-slate-50' : 'border-emerald-700/60 bg-[#08140f]'}`}>
+      <div className={`mb-2 text-xs sm:text-sm ${classes.textLight}`}>{tr.segmentTitle}</div>
       <div className={`flex h-[18px] overflow-hidden rounded-full border ${classes.segmentBar}`}>
         {[
           { id: 'segBefore', flex: 4, color: 'bg-slate-400' },
@@ -186,7 +186,7 @@ function SegmentVisualization({
         ))}
       </div>
 
-      <div className="mt-2 flex flex-wrap gap-2 text-xs">
+      <div className="mt-2 flex flex-wrap gap-1.5 sm:gap-2 text-xs">
         {[
           { color: 'bg-slate-400', label: tr.segmentLegendBefore },
           { color: 'bg-fuchsia-500', label: tr.segmentLegendGrace },
@@ -197,7 +197,7 @@ function SegmentVisualization({
         ].map((legend) => (
           <span
             key={legend.label}
-            className={`inline-flex items-center gap-2 rounded-full border px-2 py-1 ${classes.legendItem}`}
+            className={`inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-xs ${classes.legendItem}`}
           >
             <span className={`h-2 w-2 rounded-full ${legend.color}`} />
             <span>{legend.label}</span>
@@ -205,11 +205,11 @@ function SegmentVisualization({
         ))}
       </div>
 
-      <div className="mt-2 text-sm">
+      <div className="mt-2 text-xs sm:text-sm">
         {workData.currentSegment ? workData.currentSegmentLabel : tr.segmentCurrentPlaceholder}
       </div>
       <div
-        className={`mt-2 text-sm ${classes.textLight}`}
+        className={`mt-2 text-xs sm:text-sm ${classes.textLight}`}
         dangerouslySetInnerHTML={{ __html: workData.scheduleHtml || scheduleDefault }}
       />
     </div>

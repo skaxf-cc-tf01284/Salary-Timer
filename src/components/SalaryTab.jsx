@@ -28,31 +28,31 @@ export function SalaryTab({ activeTab, tr, theme, salaryData }) {
   return (
     <section className={activeTab === 'salaryTab' ? 'relative mt-4 block' : 'hidden'} role="tabpanel">
       <Fireworks active={hitFx} theme={theme} />
-      <h2 className={`flex items-center gap-2 text-xl font-bold ${theme === 'light' ? 'text-slate-900' : 'text-emerald-300'}`}>
+      <h2 className={`flex items-center gap-2 text-lg sm:text-xl font-bold ${theme === 'light' ? 'text-slate-900' : 'text-emerald-300'}`}>
         <Banknote size={18} aria-hidden="true" />
         {tr.salaryHeading}
       </h2>
       <div
-        className={`mt-2 text-sm ${classes.textLight}`}
+        className={`mt-2 text-xs sm:text-sm ${classes.textLight}`}
         dangerouslySetInnerHTML={{ __html: tr.salarySubHtml }}
       />
 
-      <div className={`mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4 ${hitFx ? 'countdown-hit' : ''}`}>
+      <div className={`mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3 ${hitFx ? 'countdown-hit' : ''}`}>
         <div className={classes.statBox}>
-          <div className={`text-4xl font-extrabold ${theme === 'light' ? 'text-emerald-700' : 'text-emerald-300'}`}>{salaryData.d}</div>
-          <div className="text-sm opacity-80">{tr.dayLabel}</div>
+          <div className={`text-3xl sm:text-4xl font-extrabold ${theme === 'light' ? 'text-emerald-700' : 'text-emerald-300'}`}>{salaryData.d}</div>
+          <div className="text-xs sm:text-sm opacity-80">{tr.dayLabel}</div>
         </div>
         <div className={classes.statBox}>
-          <div className={`text-4xl font-extrabold ${theme === 'light' ? 'text-emerald-700' : 'text-emerald-300'}`}>{salaryData.h}</div>
-          <div className="text-sm opacity-80">{tr.hourLabel}</div>
+          <div className={`text-3xl sm:text-4xl font-extrabold ${theme === 'light' ? 'text-emerald-700' : 'text-emerald-300'}`}>{salaryData.h}</div>
+          <div className="text-xs sm:text-sm opacity-80">{tr.hourLabel}</div>
         </div>
-        <div className={classes.statBox}>
-          <div className={`text-4xl font-extrabold ${theme === 'light' ? 'text-emerald-700' : 'text-emerald-300'}`}>{salaryData.m}</div>
-          <div className="text-sm opacity-80">{tr.minuteLabel}</div>
+        <div className={`hidden sm:block ${classes.statBox}`}>
+          <div className={`text-3xl sm:text-4xl font-extrabold ${theme === 'light' ? 'text-emerald-700' : 'text-emerald-300'}`}>{salaryData.m}</div>
+          <div className="text-xs sm:text-sm opacity-80">{tr.minuteLabel}</div>
         </div>
-        <div className={classes.statBox}>
-          <div className={`text-4xl font-extrabold ${theme === 'light' ? 'text-emerald-700' : 'text-emerald-300'}`}>{salaryData.s}</div>
-          <div className="text-sm opacity-80">{tr.secondLabel}</div>
+        <div className={`hidden sm:block ${classes.statBox}`}>
+          <div className={`text-3xl sm:text-4xl font-extrabold ${theme === 'light' ? 'text-emerald-700' : 'text-emerald-300'}`}>{salaryData.s}</div>
+          <div className="text-xs sm:text-sm opacity-80">{tr.secondLabel}</div>
         </div>
       </div>
 
@@ -64,8 +64,8 @@ export function SalaryTab({ activeTab, tr, theme, salaryData }) {
         </div>
       )}
 
-      <div className={`mt-3 ${classes.panelBox}`} dangerouslySetInnerHTML={{ __html: salaryData.nextPayHtml }} />
-      <div className={`mt-3 ${classes.panelBox}`} dangerouslySetInnerHTML={{ __html: salaryData.todayHtml }} />
+      <div className={`mt-3 text-xs sm:text-sm ${classes.panelBox}`} dangerouslySetInnerHTML={{ __html: salaryData.nextPayHtml }} />
+      <div className={`mt-3 text-xs sm:text-sm ${classes.panelBox}`} dangerouslySetInnerHTML={{ __html: salaryData.todayHtml }} />
     </section>
   )
 }

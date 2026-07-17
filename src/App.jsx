@@ -76,11 +76,11 @@ function App() {
               <span className={`ml-2 text-xs ${classes.textSubtitle}`}>~/workspace/salary-timer</span>
             </div>
 
-            <h1 className={`flex items-center gap-2 text-[clamp(1.4rem,2.1vw,2rem)] font-extrabold ${classes.pageTitle}`}>
-              <Hourglass size={22} aria-hidden="true" />
+            <h1 className={`flex items-center gap-2 text-[clamp(1.25rem,5vw,2rem)] font-extrabold ${classes.pageTitle}`}>
+              <Hourglass size={18} className="sm:scale-100 scale-90 origin-left" aria-hidden="true" />
               {tr.pageTitle}
             </h1>
-            <div className={`mt-2 text-sm md:text-base ${classes.textSubtitle}`}>{tr.pageSubtitle}</div>
+            <div className={`mt-2 text-xs sm:text-sm md:text-base ${classes.textSubtitle}`}>{tr.pageSubtitle}</div>
 
             <TabButtons
               activeTab={activeTab}
@@ -109,7 +109,7 @@ function App() {
 
             <SalaryTab activeTab={activeTab} tr={tr} theme={theme} salaryData={salaryData} />
 
-            <div className={`mt-4 border-t pt-3 text-sm ${theme === 'light' ? 'border-slate-300' : 'border-emerald-900/70'} ${classes.textSubtitle}`} dangerouslySetInnerHTML={{ __html: tr.footerHtml }} />
+            <div className={`mt-4 border-t pt-3 text-xs sm:text-sm ${theme === 'light' ? 'border-slate-300' : 'border-emerald-900/70'} ${classes.textSubtitle}`} dangerouslySetInnerHTML={{ __html: tr.footerHtml }} />
           </div>
         </div>
       </div>

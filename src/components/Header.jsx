@@ -43,7 +43,7 @@ export function Header({ theme, lang, setLang, tr }) {
           aria-expanded={open ? 'true' : 'false'}
           type="button"
           onClick={() => setOpen((prev) => !prev)}
-          className={`flex items-center gap-1.5 rounded-full border px-3 py-2 text-sm font-semibold backdrop-blur shadow-sm transition ${
+          className={`flex items-center gap-1.5 rounded-full border px-3 py-2.5 sm:py-2 text-xs sm:text-sm font-semibold backdrop-blur shadow-sm transition min-h-[44px] sm:min-h-auto ${
             isLight
               ? 'border-slate-300 bg-white/90 text-slate-700 hover:border-emerald-500 hover:shadow-emerald-100'
               : 'border-emerald-700 bg-[#08140f]/90 text-emerald-100 hover:border-emerald-400'
