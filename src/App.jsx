@@ -5,6 +5,7 @@ import { getTzParts, trTpl, normalizeTabId, formatTime } from './utils'
 import { calculateSalaryData, calculateWorkData, workEndMinutesFromString, normalizeWorkEndMinutes } from './calculations'
 import { getThemeClasses } from './styles'
 import { useClockState, useThemeState, useLangState, useActiveTabState, useWorkEndMinutesState, useUrlSync } from './hooks'
+import { Hourglass } from 'lucide-react'
 import { Header, ThemeToggle } from './components/Header'
 import { TabButtons } from './components/TabButtons'
 import { WorkTab } from './components/WorkTab'
@@ -75,7 +76,10 @@ function App() {
               <span className={`ml-2 text-xs ${classes.textSubtitle}`}>~/workspace/salary-timer</span>
             </div>
 
-            <h1 className={`text-[clamp(1.4rem,2.1vw,2rem)] font-extrabold ${classes.pageTitle}`}>{tr.pageTitle}</h1>
+            <h1 className={`flex items-center gap-2 text-[clamp(1.4rem,2.1vw,2rem)] font-extrabold ${classes.pageTitle}`}>
+              <Hourglass size={22} aria-hidden="true" />
+              {tr.pageTitle}
+            </h1>
             <div className={`mt-2 text-sm md:text-base ${classes.textSubtitle}`}>{tr.pageSubtitle}</div>
 
             <TabButtons

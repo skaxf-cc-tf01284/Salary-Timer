@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { Clock, Rocket, AlarmClock, Utensils, Dumbbell, Target, Sunrise } from 'lucide-react'
 import { Fireworks } from './Fireworks'
 import { getThemeClasses } from '../styles'
 import { trTpl as trTplUtil } from '../utils'
@@ -60,11 +61,20 @@ export function WorkTab({
   return (
     <section className={activeTab === 'workTab' ? 'relative mt-4 block' : 'hidden'} role="tabpanel">
       <Fireworks active={hitFx} theme={theme} />
-      <h2 className={`text-xl font-bold ${theme === 'light' ? 'text-slate-900' : 'text-emerald-300'}`}>{pageWorkHeading}</h2>
+      <h2 className={`flex items-center gap-2 text-xl font-bold ${theme === 'light' ? 'text-slate-900' : 'text-emerald-300'}`}>
+        <Clock size={18} aria-hidden="true" />
+        {pageWorkHeading}
+      </h2>
       <div
-        className={`mt-2 text-sm ${classes.textLight}`}
-        dangerouslySetInnerHTML={{ __html: workData.milestoneHtml || tr.workMilestonePlaceholder }}
-      />
+        className={`mt-2 text-sm ${classes.textLight} flex items-center gap-1.5`}
+      >
+        {workData.milestoneIcon && (() => {
+          const icons = { Rocket, AlarmClock, Utensils, Dumbbell, Target, Sunrise }
+          const Icon = icons[workData.milestoneIcon]
+          return Icon ? <Icon size={14} aria-hidden="true" className="shrink-0" /> : null
+        })()}
+        <span dangerouslySetInnerHTML={{ __html: workData.milestoneHtml || tr.workMilestonePlaceholder }} />
+      </div>
 
       <div className="mt-3 flex flex-wrap items-center gap-2">
         <label htmlFor="workEndInput" className="text-sm font-bold">

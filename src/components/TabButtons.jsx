@@ -1,3 +1,4 @@
+import { Clock, Timer, Banknote, TrendingUp } from 'lucide-react'
 import { getThemeClasses } from '../styles'
 import { stripLeadingIcons } from '../utils'
 
@@ -15,9 +16,9 @@ export function TabButtons({ activeTab, updateUrlWithTab, tr, theme }) {
         aria-selected={activeTab === 'workTab' ? 'true' : 'false'}
         onClick={() => updateUrlWithTab('workTab')}
       >
-        <span aria-hidden="true">{'<>'}</span>
+        <Clock size={16} aria-hidden="true" />
         <span className="justify-self-center">{tabWorkText}</span>
-        <span aria-hidden="true">{'{}'}</span>
+        <Timer size={16} aria-hidden="true" />
       </button>
       <button
         className={`${classes.tabBase} ${activeTab === 'salaryTab' ? classes.tabActive : ''}`}
@@ -26,9 +27,9 @@ export function TabButtons({ activeTab, updateUrlWithTab, tr, theme }) {
         aria-selected={activeTab === 'salaryTab' ? 'true' : 'false'}
         onClick={() => updateUrlWithTab('salaryTab')}
       >
-        <span aria-hidden="true">$</span>
+        <Banknote size={16} aria-hidden="true" />
         <span className="justify-self-center">{tabSalaryText}</span>
-        <span aria-hidden="true">{'/>'}</span>
+        <TrendingUp size={16} aria-hidden="true" />
       </button>
     </div>
   )

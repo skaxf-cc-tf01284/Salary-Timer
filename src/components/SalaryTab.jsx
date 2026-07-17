@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Banknote } from 'lucide-react'
 import { Fireworks } from './Fireworks'
 import { getThemeClasses } from '../styles'
 
@@ -27,7 +28,10 @@ export function SalaryTab({ activeTab, tr, theme, salaryData }) {
   return (
     <section className={activeTab === 'salaryTab' ? 'relative mt-4 block' : 'hidden'} role="tabpanel">
       <Fireworks active={hitFx} theme={theme} />
-      <h2 className={`text-xl font-bold ${theme === 'light' ? 'text-slate-900' : 'text-emerald-300'}`}>{tr.salaryHeading}</h2>
+      <h2 className={`flex items-center gap-2 text-xl font-bold ${theme === 'light' ? 'text-slate-900' : 'text-emerald-300'}`}>
+        <Banknote size={18} aria-hidden="true" />
+        {tr.salaryHeading}
+      </h2>
       <div
         className={`mt-2 text-sm ${classes.textLight}`}
         dangerouslySetInnerHTML={{ __html: tr.salarySubHtml }}

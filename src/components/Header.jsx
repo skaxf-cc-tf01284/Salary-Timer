@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { ChevronDown, Moon, Sun } from 'lucide-react'
 import { getThemeClasses } from '../styles'
 import { normalizeLang } from '../utils'
 
@@ -51,12 +52,11 @@ export function Header({ theme, lang, setLang, tr }) {
             onClick={() => setOpen((prev) => !prev)}
           >
             <span>{lang.toUpperCase()}</span>
-            <span
-              className={`pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[10px] ${classes.langSelectArrow}`}
+            <ChevronDown
+              size={12}
+              className={`pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 ${classes.langSelectArrow}`}
               aria-hidden="true"
-            >
-              ▼
-            </span>
+            />
           </button>
 
           {open && (
@@ -101,7 +101,7 @@ export function ThemeToggle({ theme, setTheme, tr }) {
       title={tr.themeToggleTitle}
       onClick={() => setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))}
     >
-      {theme === 'light' ? '🌙' : '☀️'}
+      {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
     </button>
   )
 }

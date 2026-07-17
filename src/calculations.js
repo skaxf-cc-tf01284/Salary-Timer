@@ -197,16 +197,16 @@ export function calculateWorkData(now, pNow, tr, workEndParts) {
   const endMs = tzLocalToEpochMs(pNow.year, pNow.month, pNow.day, workEndParts.hour, workEndParts.minute, 0)
 
   let milestone
-  if (nowMs < startMs) milestone = { targetMs: startMs, label: tr.milestones.startWork, icon: '🚀' }
-  else if (nowMs < lateMs) milestone = { targetMs: lateMs, label: tr.milestones.lateDeadline, icon: '⏰' }
-  else if (nowMs < lunchStartMs) milestone = { targetMs: lunchStartMs, label: tr.milestones.lunchStart, icon: '🍽️' }
-  else if (nowMs < lunchEndMs) milestone = { targetMs: lunchEndMs, label: tr.milestones.lunchEnd, icon: '💪' }
+  if (nowMs < startMs) milestone = { targetMs: startMs, label: tr.milestones.startWork, icon: 'Rocket' }
+  else if (nowMs < lateMs) milestone = { targetMs: lateMs, label: tr.milestones.lateDeadline, icon: 'AlarmClock' }
+  else if (nowMs < lunchStartMs) milestone = { targetMs: lunchStartMs, label: tr.milestones.lunchStart, icon: 'Utensils' }
+  else if (nowMs < lunchEndMs) milestone = { targetMs: lunchEndMs, label: tr.milestones.lunchEnd, icon: 'Dumbbell' }
   else if (nowMs < endMs) {
     const endWorkLabel = trTpl(tr.milestones.endWorkTemplate || tr.milestones.endWork, { endTime: endTimeText })
-    milestone = { targetMs: endMs, label: endWorkLabel, icon: '🎯' }
+    milestone = { targetMs: endMs, label: endWorkLabel, icon: 'Target' }
   } else {
     const nextDayStart = tzLocalToEpochMs(pNow.year, pNow.month, pNow.day + 1, 8, 0, 0)
-    milestone = { targetMs: nextDayStart, label: tr.milestones.startTomorrow, icon: '🌅' }
+    milestone = { targetMs: nextDayStart, label: tr.milestones.startTomorrow, icon: 'Sunrise' }
   }
 
   const delta = milestone.targetMs - nowMs
@@ -221,8 +221,9 @@ export function calculateWorkData(now, pNow, tr, workEndParts) {
       scheduleHtml: trTpl(tr.workDoneScheduleTemplate || tr.workDoneSchedule, { endTime: endTimeText }),
       currentSegment: 'segAfter',
       currentSegmentLabel: getSegmentLabel('segAfter'),
-      milestoneHtml: `<b>${tr.milestonePrefix}</b> ${milestone.icon} ${milestone.label}`,
-      title: `${tr.reachedHomeText} | ${tr.baseTitle}`,
+      milestoneHtml: `<b>${tr.milestonePrefix}</b> ${milestone.label}`,
+      title: `${tr.reachedHomeText} | ${milestone.label} | ${tr.baseTitle}`,
+      milestoneIcon: milestone.icon,
     }
   }
 
@@ -265,7 +266,8 @@ export function calculateWorkData(now, pNow, tr, workEndParts) {
     scheduleHtml,
     currentSegment: segmentId,
     currentSegmentLabel: getSegmentLabel(segmentId),
-    milestoneHtml: `<b>${tr.milestonePrefix}</b> ${milestone.icon} ${milestone.label}`,
-    title: `${pad2(hoursLeft)}:${pad2(countdown.mins)}:${pad2(countdown.secs)} | ${milestone.icon} ${milestone.label} | ${tr.baseTitle}`,
+    milestoneHtml: `<b>${tr.milestonePrefix}</b> ${milestone.label}`,
+    title: `${pad2(hoursLeft)}:${pad2(countdown.mins)}:${pad2(countdown.secs)} | ${milestone.label} | ${tr.baseTitle}`,
+    milestoneIcon: milestone.icon,
   }
 }
