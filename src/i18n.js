@@ -29,7 +29,7 @@ export const COUNTDOWN_I18N = {
     segmentNoteDefaultTemplate: "Khung chuẩn 08:00-{endTime}, nghỉ trưa 11:00-12:00, đi muộn tối đa đến 08:15.",
     salaryHeading: "Countdown Ngày Nhận Lương",
     salarySubHtml:
-      "Ngày lương: <b>19 hàng tháng</b>. Nếu rơi vào <b>T7/CN</b> hoặc <b>ngày lễ</b> thì dời sang <b>ngày làm việc tiếp theo</b>. Thời điểm nhận lương: <b>15:00</b> (UTC+7).",
+      "Ngày lương: <b>19 hàng tháng</b>. Nếu rơi vào <b>T7/CN</b> hoặc <b>ngày lễ</b> thì dời sang <b>ngày làm việc tiếp theo</b>. Thời điểm nhận lương: <b>16:00</b> (UTC+7).",
     footerHtml: "Múi giờ áp dụng: <b>Asia/Ho_Chi_Minh (UTC+7)</b>",
     dayLabel: "Ngày",
     hourLabel: "Giờ",
@@ -123,7 +123,7 @@ export const COUNTDOWN_I18N = {
     segmentNoteDefaultTemplate: "Standard shift 08:00-{endTime}, lunch 11:00-12:00, latest allowed arrival 08:15.",
     salaryHeading: "Payday Countdown",
     salarySubHtml:
-      "Payday is on <b>the 19th each month</b>. If it falls on a <b>weekend</b> or <b>holiday</b>, it moves to the <b>next working day</b>. Payment time: <b>15:00</b> (UTC+7).",
+      "Payday is on <b>the 19th each month</b>. If it falls on a <b>weekend</b> or <b>holiday</b>, it moves to the <b>next working day</b>. Payment time: <b>16:00</b> (UTC+7).",
     footerHtml: "Applied time zone: <b>Asia/Ho_Chi_Minh (UTC+7)</b>",
     dayLabel: "Days",
     hourLabel: "Hours",

@@ -8,7 +8,7 @@ export const VALID_TAB_IDS = new Set(['workTab', 'salaryTab'])
 
 // Timezone & Time
 export const TZ = 'Asia/Ho_Chi_Minh'
-export const SALARY_HOUR = 15
+export const SALARY_HOUR = 16
 export const WORK_START_HOUR = 8
 export const LUNCH_START_HOUR = 11
 export const LUNCH_END_HOUR = 12
